@@ -1,0 +1,331 @@
+/* ========================= */
+/* HOME PAGE CSS */
+/* ========================= */
+
+body {
+  margin: 0;
+}
+
+/* Home Container */
+.home-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 100px 5vw 40px 5vw; /* Space for fixed navbar */
+  background: linear-gradient(to right, #000000, #0f0f2d);
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+/* Left Section */
+.home-left {
+  flex: 1;
+  max-width: 600px;
+}
+
+.home-left h1 {
+  font-size: 48px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.home-left p {
+  font-size: 18px;
+  color: #bbbbbb;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+/* Buttons */
+.home-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(45deg, #ff6ec4, #7873f5);
+  color: white;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(255, 110, 196, 0.4);
+}
+
+/* Right Section */
+.home-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.home-right img {
+  width: 400px;
+  max-width: 100%;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+
+  .home-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .home-left h1 {
+    font-size: 38px;
+  }
+
+  .home-left p {
+    font-size: 16px;
+  }
+
+  .home-buttons {
+    justify-content: center;
+  }
+
+  .home-right img {
+    width: 300px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .home-left h1 {
+    font-size: 30px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+
+  .home-right img {
+    width: 250px;
+  }
+}/* ========================= */
+/* ABOUT PAGE */
+/* ========================= */
+
+.about-container {
+  min-height: 100vh;
+  padding: 100px 5vw 80px 5vw;
+  background: linear-gradient(to right, #000000, #0f0f2d);
+  color: white;
+}
+
+/* ========================= */
+/* HERO SECTION */
+/* ========================= */
+
+.about-hero {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.about-hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.about-hero p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #bbbbbb;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* ========================= */
+/* STATS SECTION */
+/* ========================= */
+
+.about-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 80px;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px 50px;
+  border-radius: 16px;
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.stat-card h2 {
+  font-size: 36px;
+  color: #ff6ec4;
+  margin-bottom: 10px;
+}
+
+.stat-card p {
+  color: #cccccc;
+}
+
+/* ========================= */
+/* CONTENT SECTIONS */
+/* ========================= */
+
+.about-section {
+  max-width: 900px;
+  margin: 0 auto 80px auto;
+  text-align: center;
+}
+
+.about-section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.about-section p {
+  font-size: 18px;
+  color: #cccccc;
+  line-height: 1.7;
+}
+
+.about-section.alt {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 40px;
+  border-radius: 16px;
+}
+
+/* ========================= */
+/* TEAM SECTION */
+/* ========================= */
+
+.about-team {
+  text-align: center;
+}
+
+.about-team h2 {
+  font-size: 32px;
+  margin-bottom: 50px;
+}
+
+.team-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.team-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 16px;
+  width: 250px;
+  transition: 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(45deg, #ff6ec4, #7873f5);
+  border-radius: 50%;
+  margin: 0 auto 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.team-card h3 {
+  margin-bottom: 8px;
+}
+
+.team-card p {
+  color: #bbbbbb;
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  .about-hero h1 {
+    font-size: 36px;
+  }
+
+  .stat-card {
+    width: 100%;
+  }
+
+  .team-card {
+    width: 100%;
+  }
+
+}
+
+
+
+import "./index.css";
+import girlImage from "../../assets/girl.png";
+ // 👈 put your image inside assets folder
+
+function Home() {
+  return (
+    <main className="home-container">
+      
+      <div className="home-left">
+        <h1>
+          Welcome <span className="wave">👋</span>
+        </h1>
+
+        <p>
+          Ask doubts. Answer doubts. Earn points. Built by students, for students.
+        </p>
+
+        <div className="home-buttons">
+          <button className="btn-primary">Ask a Doubt</button>
+          <button className="btn-secondary">Answer & Earn</button>
+        </div>
+      </div>
+
+      <div className="home-right">
+        <img src={girlImage} alt="student" />
+      </div>
+
+    </main>
+  );
+}
+
+export default Home;
+
+
