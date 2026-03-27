@@ -1,0 +1,200 @@
+/* ===== Background ===== */
+
+.explore-container {
+  min-height: 100vh;
+  padding: 70px 20px;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: white;
+  text-align: center;
+}
+
+/* ===== Heading ===== */
+
+.explore-heading {
+  font-size: 34px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.explore-subtext {
+  font-size: 16px;
+  margin-bottom: 60px;
+  opacity: 0.8;
+}
+
+/* ===== Timeline Structure ===== */
+
+.timeline {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* Center Vertical Line */
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  background: rgba(255, 255, 255, 0.25);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Timeline Item */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px 0;
+}
+
+/* Left Side */
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+  padding-right: 30px;  /* 🔥 Close to line */
+}
+
+/* Right Side */
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+  padding-left: 30px;   /* 🔥 Close to line */
+}
+
+/* ===== Circle Design ===== */
+
+.circle {
+  width: 120px;     /* smaller */
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #1f1c2c, #928dab);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.15);
+  transition: 0.3s ease;
+  margin: auto;
+}
+
+.circle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(173, 216, 230, 0.6);
+}
+
+.circle h4 {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.circle p {
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.circle span {
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 768px) {
+
+  .timeline::after {
+    left: 8px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 40px;
+    text-align: left;
+  }
+
+  .timeline-item.left,
+  .timeline-item.right {
+    left: 0;
+    padding-left: 40px;
+    padding-right: 0;
+  }
+
+  .circle {
+    margin: 0;
+  }
+}
+/* ===== Bronze Glow ===== */
+.circle.bronze:hover {
+  box-shadow: 0 0 25px #cd7f32;
+  border: 2px solid #cd7f32;
+}
+
+/* ===== Silver Glow ===== */
+.circle.silver:hover {
+  box-shadow: 0 0 25px #c0c0c0;
+  border: 2px solid #c0c0c0;
+}
+
+/* ===== Gold Glow ===== */
+.circle.gold:hover {
+  box-shadow: 0 0 25px #ffd700;
+  border: 2px solid #ffd700;
+}
+
+/* ===== Platinum Glow ===== */
+.circle.platinum:hover {
+  box-shadow: 0 0 25px #a8e4ff;
+  border: 2px solid #a8e4ff;
+}
+
+/* ===== Diamond Glow ===== */
+.circle.diamond:hover {
+  box-shadow: 0 0 30px #00e5ff;
+  border: 2px solid #00e5ff;
+}
+
+
+
+import React from "react";
+import "./index.css";
+
+const levels = [
+  { id: 1, title: "Bronze", coins: "10,000 Coins", reward: "₹100", type: "bronze" },
+  { id: 2, title: "Silver", coins: "50,000 Coins", reward: "₹500", type: "silver" },
+  { id: 3, title: "Gold", coins: "1,00,000 Coins", reward: "₹1000", type: "gold" },
+  { id: 4, title: "Platinum", coins: "5,00,000 Coins", reward: "₹5000", type: "platinum" },
+  { id: 5, title: "Diamond", coins: "10,00,000 Coins", reward: "₹10,000", type: "diamond" },
+];
+
+function Explore() {
+  return (
+    <div className="explore-container">
+      <h1 className="explore-heading">Solvey Rewards Journey</h1>
+      <p className="explore-subtext">
+        Solve doubts → Earn coins → Convert into real money 💰
+      </p>
+
+      <div className="timeline">
+        {levels.map((level, index) => (
+          <div
+            key={level.id}
+            className={`timeline-item ${index % 2 === 0 ? "left" : "right"}`}
+          >
+            <div className={`circle ${level.type}`}>
+              <h4>{level.title}</h4>
+              <p>{level.coins}</p>
+              <span>{level.reward}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default Explore;
+
+
