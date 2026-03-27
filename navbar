@@ -1,0 +1,122 @@
+/* ========================= */
+/* NAVBAR CSS */
+/* ========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Navbar Container */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5vw;
+  z-index: 1000;
+}
+
+/* Logo */
+.logo {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Nav Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li {
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.nav-links li:hover {
+  color: #b026ff;
+  text-shadow: 0 0 8px #b026ff, 0 0 16px #0d308f;
+}
+
+/* Profile Icon */
+.profile-icon {
+  background: #3d274a;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 15px;
+    font-size: 14px;
+  }
+
+  .navbar {
+    padding: 0 20px;
+  }
+}
+
+
+
+import "./index.css";
+
+function Navbar({ setScreen, user, setUser }) {
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setUser(null);
+    setScreen("home");
+  };
+
+  return (
+    <nav className="navbar">
+      <div className="logo" onClick={() => setScreen("home")}>
+       SOLVEY
+      </div>
+
+      <ul className="nav-links">
+        {user ? (
+          <>
+            {/* Profile Initial */}
+            <li className="profile-icon">
+              {user.username.charAt(0).toUpperCase()}
+            </li>
+
+            <li onClick={handleLogout}>Logout</li>
+          </>
+        ) : (
+          <>
+            <li onClick={() => setScreen("home")}>Home</li>
+            <li onClick={() => setScreen("explore")}>Explore</li>
+            <li onClick={() => setScreen("aboutus")}>About Us</li>
+            <li onClick={() => setScreen("login")}>Login</li>
+          </>
+        )}
+      </ul>
+    </nav>
+  );
+}
+
+export default Navbar;
